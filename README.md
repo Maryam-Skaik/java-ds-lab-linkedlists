@@ -6,7 +6,8 @@
 ![Level](https://img.shields.io/badge/Level-Beginner%20%2F%20Intro-%2381c784)
 ![Purpose](https://img.shields.io/badge/Purpose-Teaching-%234fc3f7)
 
-This repository contains lecture examples, slides, activity skeletons, and solutions for the **Linked Lists Module** of the Java Data Structures Lab. Linked lists are pointer-based collections that provide dynamic sizing and efficient pointer updates for insertion/deletion operations compared with fixed-size arrays.
+This repository contains lecture examples, slides, activity skeletons, assignments, and solutions for the **Linked Lists Module** of the Java Data Structures Lab.
+Linked lists are pointer-based collections that provide dynamic sizing and efficient pointer updates for insertion/deletion operations compared with fixed-size arrays.
 
 ---
 
@@ -67,7 +68,7 @@ java-ds-lab-linkedlists/
 │       └── Lecture 02 - Linked Lists.pdf
 │
 ├── assignments/                  # Assignment descriptions & future solutions
-│   └── README.md
+│   └── README.md                 # Students must watch the video to know the tasks
 │
 └── README.md
 ```
@@ -304,6 +305,22 @@ Activities are **for practice in this week’s lab**.
 Will provide step-by-step solutions for all four activities:
 
 [Activity Solutions – Linked Lists Lecture]
+
+---
+
+## ▶ Assignment Video
+
+Assignments for this module are provided through a dedicated recorded video.
+
+Students must:
+
+1. Watch the assignment video in full  
+2. Write down the tasks  
+3. Implement the solutions independently  
+4. Submit on Moodle
+
+The assignment video and instructions are available in the **assignments/** folder.  
+[Click here to view the assignments README](assignments/README.md)
 
 ---
 
