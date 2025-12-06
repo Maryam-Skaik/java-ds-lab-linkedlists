@@ -32,7 +32,7 @@ By the end of this module students will be able to:
 
 ## ▶ Lecture Video
 
-**DS Lab: Linked Lists — Dynamic Structures (Lecture 02)**  
+**[DS Lab: Linked Lists — Dynamic Structures (Lecture 02)](https://youtu.be/RocGGEeBOQ0)**  
 
 ---
 
@@ -304,7 +304,7 @@ Activities are **for practice in this week’s lab**.
 
 Will provide step-by-step solutions for all four activities:
 
-[Activity Solutions – Linked Lists Lecture]
+**[Activity Solutions – Linked Lists Lecture](https://www.youtube.com/watch?v=-tBJQsVmDho)**
 
 ---
 
