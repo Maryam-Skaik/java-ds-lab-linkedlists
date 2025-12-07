@@ -16,7 +16,8 @@ Students must:
 4. Submit their solution on Moodle
 
 **Latest Assignment Video:**  
-[Assignment Video Link](https://www.youtube.com/) 
+
+**[Assignment Video Link](https://www.youtube.com/watch?v=D1WQH5rjdE8)**
 
 ---
 
