@@ -59,6 +59,7 @@ java-ds-lab-linkedlists/
 │   │   └── DoubleLinkedList.java
 │   │
 │   ├── activities/               # Student practice activities (solutions uploaded later)
+|   |   ├── README.md             # Detailed solutions + explanations
 │   │   ├── Activity01_CountNodesSLL.java
 │   │   ├── Activity02_PrintNthFromEndSLL.java
 │   │   ├── Activity03_SwapNodesDLL.java
@@ -286,7 +287,7 @@ Activities are **for practice in this week’s lab**.
 - Find and print the nth node from the end
 - Practice **two-pointer or counting techniques**
 
-## ⭐ Activity 03 – Swap Two Nodes in DLL
+### ⭐ Activity 03 – Swap Two Nodes in DLL
 
 - Swap positions of two nodes (by value) in a double linked list
 - Practice **pointer manipulation**
@@ -298,13 +299,19 @@ Activities are **for practice in this week’s lab**.
   - Traverse all nodes
   - Delete a node
 
+
+**Detailed solutions and explanations are now included** in the repository:
+
+**→ Solutions README:** [src/activities/README.md](src/activities/README.md)
+This file contains step-by-step explanations, complexity notes, edge-case discussion, and run instructions for each activity (Count Nodes, Nth from end, Swap in DLL, Basic CLL). It also links to the recorded walkthrough.
+
 ---
 
 ## ▶ Activity Solutions Video
 
-Will provide step-by-step solutions for all four activities:
+A recorded walkthrough that explains each solution with pointer tracing and live code runs:
 
-**[Activity Solutions – Linked Lists Lecture](https://www.youtube.com/watch?v=-tBJQsVmDho)**
+**[Activity Solutions – Linked Lists Lecture](https://www.youtube.com/watch?v=EAR6Zfm6l3A)**
 
 ---
 
