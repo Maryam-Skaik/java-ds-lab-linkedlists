@@ -1,22 +1,24 @@
-/*
- * Activity 03: Swap Two Nodes in a Doubly Linked List (DLL)
- *
- * Objective:
- * Students must implement a function that swaps the positions of
- * TWO EXISTING nodes in a DLL WITHOUT swapping their data.
- *
- * Key idea:
- * We swap pointers (next/prev) instead of values.
- * This is more efficient when nodes store large objects.
- */
-
 package linkedlist.activities;
 
+/**
+ * Activity 03 — Swap two nodes in a Doubly Linked List (DLL)
+ *
+ * Approach used:
+ *  - Rewire `prev` and `next` pointers of the two nodes and their neighbors.
+ *  - Update head/tail if either node was at the boundary.
+ *
+ * Important notes:
+ *  - Swapping nodes is pointer manipulation only; we do not swap node.element values.
+ *  - Must handle cases when one or both nodes are head/tail.
+ *  - Adjacent-node swap requires careful pointer updates; the implementation below is written
+ *    to handle general cases (non-null checks / head/tail updates).
+ *  - Deletion fixes: deleteByValue only decrements size when deletion occurs.
+ */
 public class DLL<T> {
 
     public Node<T> head;
     public Node<T> tail;
-    int size;
+    private int size;
 
     public DLL() {
         head = null;
@@ -24,7 +26,6 @@ public class DLL<T> {
         size = 0;
     }
 
-    // Node class used in the DLL
     public static class Node<T> {
         private T element;
         private Node<T> next;
@@ -43,88 +44,72 @@ public class DLL<T> {
         public void setPrev(Node<T> p) { prev = p; }
     }
 
-    // Insert a node at the beginning
     public void insertAtHead(Node<T> node) {
         if (head == null) {
-            head = tail = node;
+            head = node;
+            tail = node;
             size++;
             return;
         }
-
         node.next = head;
         head.prev = node;
         head = node;
         size++;
     }
 
-    // Insert a node at the end
     public void insertAtTail(Node<T> node) {
-        if (tail == null) {
-            head = tail = node;
+        if (head == null) {
+            head = node;
+            tail = node;
             size++;
             return;
         }
-
         tail.next = node;
         node.prev = tail;
         tail = node;
         size++;
     }
 
-    /*
-     * Activity 03: swapNodes(Node x, Node y)
-     *
-     * Implementation notes:
-     * - Must handle 4 possible cases:
-     *      1) x is head
-     *      2) y is head
-     *      3) x is tail
-     *      4) y is tail
-     * - Must rewire prev/next pointers of surrounding nodes
-     * - Then swap internal pointers of x and y
-     */
-    public void swapNodes(Node x, Node y) {
+    public void deleteByValue(T element) {
+        if (head == null) return;
 
-        if (x == null || y == null) return;
-        if (x == y) return;
+        // delete head
+        if (head.element.equals(element)) {
+            if (head == tail) {
+                head = null;
+                tail = null;
+                size--;
+                return;
+            }
+            head = head.next;
+            head.prev = null;
+            size--;
+            return;
+        }
 
-        // Fix PREVIOUS pointers for x and y
-        if (x.prev != null)
-            x.prev.next = y;       // Normal case
-        else
-            head = y;              // x was the head → y becomes head
+        // delete tail
+        if (tail.element.equals(element)) {
+            tail = tail.prev;
+            tail.next = null;
+            size--;
+            return;
+        }
 
-        if (y.prev != null)
-            y.prev.next = x;
-        else
-            head = x;              // y was the head → x becomes head
+        Node<T> currentNode = head;
+        while (currentNode != null && !currentNode.element.equals(element)) {
+            currentNode = currentNode.next;
+        }
 
-        // Fix NEXT pointers for x and y
-        if (x.next != null)
-            x.next.prev = y;
-        else
-            tail = y;              // x was tail → y becomes tail
-
-        if (y.next != null)
-            y.next.prev = x;
-        else
-            tail = x;              // y was tail → x becomes tail
-
-        // Now swap the internal pointers of x and y
-        Node prev = x.prev;
-        Node next = x.next;
-
-        x.prev = y.prev;
-        x.next = y.next;
-
-        y.prev = prev;
-        y.next = next;
+        if (currentNode != null) {
+            // unlink currentNode
+            currentNode.prev.next = currentNode.next;
+            currentNode.next.prev = currentNode.prev;
+            size--;
+        }
     }
 
-    // Forward traversal
     public void TraverseForward() {
         Node<T> currentNode = head;
-
         System.out.print("NULL <-> ");
         while (currentNode != null) {
             System.out.print(currentNode.element + " <-> ");
@@ -133,15 +118,84 @@ public class DLL<T> {
         System.out.println("NULL");
     }
 
-    // Backward traversal
     public void TraverseBackward() {
         Node<T> currentNode = tail;
-
         System.out.print("NULL <-> ");
         while (currentNode != null) {
             System.out.print(currentNode.element + " <-> ");
             currentNode = currentNode.prev;
         }
         System.out.println("NULL");
+    }
+
+    public int size(){
+        return size;
+    }
+
+    /**
+     * swapNodes(x, y)
+     * - Rewires neighbors and x,y next/prev references.
+     * - Updates head/tail when needed.
+     *
+     * Important: This method avoids swapping element values and swaps node positions.
+     * Handle x == y and null arguments early.
+     */
+    public void swapNodes(Node<T> x, Node<T> y){
+        if(x == null || y == null) return;
+        if(x == y) return;
+
+        // If either node is head, update head pointer to the other node
+        if(x.prev != null)
+            x.prev.next = y;
+        else
+            head = y;
+
+        if(y.prev != null)
+            y.prev.next = x;
+        else
+            head = x;
+
+        // If either node is tail, update tail pointer to the other node
+        if(x.next != null)
+            x.next.prev = y;
+        else
+            tail = y;
+
+        if(y.next != null)
+            y.next.prev = x;
+        else
+            tail = x;
+
+        // swap x.prev/x.next with y.prev/y.next
+        Node<T> prevX = x.prev;
+        Node<T> nextX = x.next;
+
+        x.next = y.next;
+        x.prev = y.prev;
+
+        y.prev = prevX;
+        y.next = nextX;
+    }
+
+    public static void main(String[] args) {
+        DLL<Integer> dll = new DLL<>();
+
+        Node<Integer> a = new Node<>(1, null, null);
+        Node<Integer> b = new Node<>(2, null, null);
+        Node<Integer> c = new Node<>(3, null, null);
+        Node<Integer> d = new Node<>(4, null, null);
+
+        dll.insertAtHead(d);
+        dll.insertAtHead(c);
+        dll.insertAtHead(b);
+        dll.insertAtHead(a); // 1 2 3 4
+
+        dll.TraverseForward();
+
+        System.out.println("------------");
+
+        dll.swapNodes(a, d); // swap head and tail
+
+        dll.TraverseForward();
     }
 }
