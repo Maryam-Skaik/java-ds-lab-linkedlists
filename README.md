@@ -59,11 +59,10 @@ java-ds-lab-linkedlists/
 │   │   └── DoubleLinkedList.java
 │   │
 │   ├── activities/               # Student practice activities (solutions uploaded later)
-|   |   ├── README.md             # Detailed solutions + explanations
-│   │   ├── Activity01_CountNodesSLL.java
-│   │   ├── Activity02_PrintNthFromEndSLL.java
-│   │   ├── Activity03_SwapNodesDLL.java
-│   │   └── Activity04_BasicCLL.java
+│   │   ├── README.md             # Detailed solutions + explanations
+│   │   ├── SLL.java
+│   │   ├── DLL.java
+│   │   └── CLL.java
 │   │
 │   └── chapters/                 # Lecture chapters (PDF)
 │       └── Lecture 02 - Linked Lists.pdf
