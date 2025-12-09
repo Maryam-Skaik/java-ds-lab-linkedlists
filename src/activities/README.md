@@ -99,7 +99,7 @@ java -cp out linkedlist.activities.CLL
 
 A recorded walkthrough that explains the reasoning and trace execution step-by-step (linked from the main README).
 
-**Video: [Activity Solutions – Linked Lists Lecture](https://www.youtube.com/watch?v=EAR6Zfm6l3A)**
+**Video: [Activity Solutions – Linked Lists Lecture](https://youtu.be/w_HARbHwGZk)**
 
 ---
 
