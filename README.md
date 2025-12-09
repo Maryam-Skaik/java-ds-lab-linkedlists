@@ -310,7 +310,7 @@ This file contains step-by-step explanations, complexity notes, edge-case discus
 
 A recorded walkthrough that explains each solution with pointer tracing and live code runs:
 
-**[Activity Solutions – Linked Lists Lecture](https://www.youtube.com/watch?v=EAR6Zfm6l3A)**
+**[Activity Solutions – Linked Lists Lecture](https://youtu.be/w_HARbHwGZk)**
 
 ---
 
