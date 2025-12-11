@@ -101,6 +101,16 @@ A `Node<T>` usually stores:
 - Node<T> next — pointer to next node
 - optionally Node<T> prev — pointer to previous node (DLL)
 
+**Node Structure**
+
+```java
+class Node<T> {
+    T data;
+    Node<T> next;
+    Node<T> prev; // Only for DLL
+}
+```
+
 ---
 
 ### ✔ Singly Linked List (SLL)
@@ -123,6 +133,18 @@ A `Node<T>` usually stores:
 > - Deletion → O(n)
 > - Traversal → O(n)
 
+```mermaid
+flowchart LR
+    head(["Head"]):::headNode --> N1["10"]:::sllNode
+    N1 --> N2["20"]:::sllNode
+    N2 --> N3["30"]:::sllNode
+    N3 --> nullNode(["null"]):::nullNode
+
+    classDef sllNode fill:#ffb74d,stroke:#000,stroke-width:1px,color:#000;
+    classDef headNode fill:#73c2fb,stroke:#000,stroke-width:1px,color:#000;
+    classDef nullNode fill:#e57373,stroke:#000,stroke-width:1px,color:#fff;
+```
+
 ---
 
 ## ✔ Doubly Linked List (DLL)
@@ -143,6 +165,19 @@ A `Node<T>` usually stores:
 > - Deletion → O(n)
 > - Traversal → O(n)
 
+```mermaid
+flowchart LR
+    N1["prev: null | 10 | next: 20"]:::dllNode
+    N2["prev: 10 | 20 | next: 30"]:::dllNode
+    N3["prev: 20 | 30 | next: null"]:::dllNode
+
+    %% Forward connections
+    N1 --> N2
+    N2 --> N3
+
+    classDef dllNode fill:#ffb74d,stroke:#000,stroke-width:1px,color:#000;
+```
+
 ---
 
 ## ✔ Circular Linked List (CLL)
@@ -156,6 +191,16 @@ A `Node<T>` usually stores:
 > Time Complexity:
 >   
 > - All basic operations → O(n)
+
+```mermaid
+flowchart LR
+    H(["Head:10"]):::headNode --> N2["20"]:::cllNode
+    N2 --> N3["30"]:::cllNode
+    N3 --> H
+
+    classDef cllNode fill:#ffb74d,stroke:#000,stroke-width:1px,color:#000;
+    classDef headNode fill:#73c2fb,stroke:#000,stroke-width:1px,color:#000;
+```
 
 ---
 
@@ -180,6 +225,24 @@ head -> [10] -> [20] -> [30] -+
    ^                          |
    +--------------------------+
 ```
+
+---
+
+## 📘 Operations & Time Complexity
+
+| Structure | Operation           | Time Complexity | Space Complexity |
+| --------- | ------------------ | --------------- | ---------------- |
+| SLL       | Insert at head      | ![O(1)](https://img.shields.io/badge/O(1)-green) | ![O(1)](https://img.shields.io/badge/O(1)-blue) |
+| SLL       | Insert at tail      | ![O(n)](https://img.shields.io/badge/O(n)-orange) | ![O(1)](https://img.shields.io/badge/O(1)-blue) |
+| SLL       | Delete by value     | ![O(n)](https://img.shields.io/badge/O(n)-orange) | ![O(1)](https://img.shields.io/badge/O(1)-blue) |
+| SLL       | Traverse/Print      | ![O(n)](https://img.shields.io/badge/O(n)-orange) | ![O(1)](https://img.shields.io/badge/O(1)-blue) |
+| DLL       | Insert at head/tail | ![O(1)](https://img.shields.io/badge/O(1)-green) | ![O(1)](https://img.shields.io/badge/O(1)-blue) |
+| DLL       | Delete by value     | ![O(n)](https://img.shields.io/badge/O(n)-orange) | ![O(1)](https://img.shields.io/badge/O(1)-blue) |
+| DLL       | Traverse forward    | ![O(n)](https://img.shields.io/badge/O(n)-orange) | ![O(1)](https://img.shields.io/badge/O(1)-blue) |
+| DLL       | Traverse backward   | ![O(n)](https://img.shields.io/badge/O(n)-orange) | ![O(1)](https://img.shields.io/badge/O(1)-blue) |
+| CLL       | Insert at head/tail | ![O(1)/O(n)](https://img.shields.io/badge/O(1)-green?style=flat-square) | ![O(1)](https://img.shields.io/badge/O(1)-blue) |
+| CLL       | Delete by value     | ![O(n)](https://img.shields.io/badge/O(n)-orange) | ![O(1)](https://img.shields.io/badge/O(1)-blue) |
+| CLL       | Traverse all nodes  | ![O(n)](https://img.shields.io/badge/O(n)-orange) | ![O(1)](https://img.shields.io/badge/O(1)-blue) |
 
 ---
 
