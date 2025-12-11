@@ -1,7 +1,7 @@
 
 # 🧩 Activities — Linked Lists (Solutions & Explanations)
 
-Welcome! This document explains the four lab activities from **Linked Lists (SLL, DLL, CLL)** and shows how each solution was implemented. Each activity includes the problem statement, the chosen approaches, complexity notes, and key edge-cases you must discuss or test when solving the problem.
+Welcome! This document explains the four lab activities from **Linked Lists (SLL, DLL, CLL)** and shows how each solution was implemented. Each activity includes the problem statement, the chosen approaches, complexity notes, key edge-cases, and visual diagrams to help students understand pointer manipulations.
 
 ---
 
@@ -24,6 +24,21 @@ Welcome! This document explains the four lab activities from **Linked Lists (SLL
 - Single node list → count = 1.
 - After several insertions and deletions validate `size()` matches `countNodes()`.
 
+**Diagram — Traversal Count:**
+
+```mermaid
+graph LR
+style Node1 fill:#ffcccc,stroke:#ff0000,stroke-width:2px,color:#000000
+style Node2 fill:#ffe0b3,stroke:#ff6600,stroke-width:2px,color:#000000
+style Node3 fill:#ccffcc,stroke:#00cc00,stroke-width:2px,color:#000000
+style Counter fill:#ccccff,stroke:#0000ff,stroke-width:2px,color:#000000
+
+Node1["Node 1 (Head)"] --> Node2["Node 2"] --> Node3["Node 3"] --> Null["Null"]
+Counter["Counter"] --> Node1
+Counter --> Node2
+Counter --> Node3
+```
+
 ---
 
 ## 🔁 Activity 02 — Print Nth Node from End in SLL
@@ -42,6 +57,22 @@ Welcome! This document explains the four lab activities from **Linked Lists (SLL
    - Edge-cases: `k <= 0`, `k > size` — return `null` or indicate invalid input.
 
 **Why two-pointer is preferred in interviews:** single-pass, no need for extra metadata.
+
+**Diagram — Two-Pointer Technique:**
+
+```mermaid
+graph LR
+style Node1 fill:#ffcccc,stroke:#ff0000,stroke-width:2px,color:#000000
+style Node2 fill:#ffe0b3,stroke:#ff6600,stroke-width:2px,color:#000000
+style Node3 fill:#ccffcc,stroke:#00cc00,stroke-width:2px,color:#000000
+style Node4 fill:#cce0ff,stroke:#0066ff,stroke-width:2px,color:#000000
+style F fill:#ff99ff,stroke:#cc00cc,stroke-width:2px,color:#000000
+style S fill:#99ffff,stroke:#00cccc,stroke-width:2px,color:#000000
+
+Node1["Node 1 (Head)"] --> Node2["Node 2"] --> Node3["Node 3"] --> Node4["Node 4"] --> Null["Null"]
+F["First Pointer"] --> Node1
+S["Second Pointer"] --> Node1
+```
 
 ---
 
@@ -62,6 +93,19 @@ Welcome! This document explains the four lab activities from **Linked Lists (SLL
 - Swap when one node is null (no-op).
 - Swap equal nodes (no-op).
 
+**Diagram — Swap in DLL:** 
+
+```mermaid
+graph LR
+style Node1 fill:#ffcccc,stroke:#ff0000,stroke-width:2px,color:#000000
+style Node2 fill:#ccffcc,stroke:#00cc00,stroke-width:2px,color:#000000
+style Node3 fill:#cce0ff,stroke:#0066ff,stroke-width:2px,color:#000000
+style Note1 fill:#ffffcc,stroke:#ff9900,stroke-width:2px,color:#000000
+
+Node1["Node 1 (Head)"] <--> Node2["Node 2"] <--> Node3["Node 3 (Tail)"]
+Note1["Swap Node1 & Node3"]
+```
+
 ---
 
 ## 🔄 Activity 04 — Circular Linked List (CLL) — Basic operations
@@ -76,6 +120,17 @@ Welcome! This document explains the four lab activities from **Linked Lists (SLL
 - Traversal must check for empty list to avoid runtime errors.
 
 **Complexity:** All operations are O(n) in the current implementation because we do not maintain a `tail` pointer. If you add `tail`, insert-at-tail becomes O(1).
+
+**Diagram — CLL Traversal:**
+
+```mermaid
+graph LR
+style Node1 fill:#ffcccc,stroke:#ff0000,stroke-width:2px,color:#000000
+style Node2 fill:#ccffcc,stroke:#00cc00,stroke-width:2px,color:#000000
+style Node3 fill:#cce0ff,stroke:#0066ff,stroke-width:2px,color:#000000
+
+Node1["Node 1 (Head)"] --> Node2["Node 2"] --> Node3["Node 3"] --> Node1
+```
 
 ---
 
