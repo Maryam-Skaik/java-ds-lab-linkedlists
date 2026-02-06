@@ -13,7 +13,7 @@ in the Java Data Structures Lab.
 2️⃣ Check if a Singly Linked List is a Palindrome  
 3️⃣ Reorder a Doubly Linked List (ODD → EVEN values)  
 4️⃣ Merge Two Sorted Singly Linked Lists  
-5️⃣ Remove Duplicates from an Unsorted SLL  
+5️⃣ Remove Duplicates from a sorted SLL  
 ⭐ Bonus: Rotate a Circular Linked List  
 
 ---
