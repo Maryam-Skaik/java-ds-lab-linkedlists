@@ -1,4 +1,4 @@
-package linkedlists.assignment_solutions;
+package assignment_solutions;
 
 /**
  * Bonus Problem:
